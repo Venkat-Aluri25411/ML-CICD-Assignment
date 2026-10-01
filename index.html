@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,73 +6,477 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ML CI/CD Assignment</title>
+    <title>ML CI/CD Pipeline</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
-            padding: 50px;
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f8;
+            color: #222;
         }
 
         .container {
-            background: white;
-            max-width: 600px;
-            margin: auto;
+            max-width: 1000px;
+            margin: 50px auto;
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #ccc;
         }
 
-        h1 {
-            color: #333;
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
         }
 
-        .info {
-            text-align: left;
-            margin-top: 25px;
+        .header h1 {
+            margin-bottom: 10px;
+            font-size: 36px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 18px;
+        }
+
+        /* =========================
+           MODEL INFORMATION
+           ========================= */
+
+        .info-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 45px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .info-card h3 {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .info-card p {
+            font-size: 20px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        /* =========================
+           PIPELINE
+           ========================= */
+
+        .pipeline-section {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .pipeline-section h2 {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .pipeline {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+        }
+
+        .stage {
+            width: 170px;
+            min-height: 150px;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 12px;
+            text-align: center;
+            background: #fafafa;
+        }
+
+        .stage .number {
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            margin: 0 auto 10px;
+            border-radius: 50%;
+            background: #333;
+            color: white;
+            font-weight: bold;
+        }
+
+        .stage h3 {
+            margin: 10px 0;
+        }
+
+        .stage p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
         }
 
         .success {
+            margin-top: 12px;
+            font-size: 13px;
+            font-weight: bold;
             color: green;
+        }
+
+        .arrow {
+            font-size: 35px;
+            font-weight: bold;
+            margin: 0 12px;
+        }
+
+        /* =========================
+           CI / CD LABELS
+           ========================= */
+
+        .ci-label {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 18px;
             font-weight: bold;
         }
+
+        .cd-label {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           DEPLOYMENT STATUS
+           ========================= */
+
+        .status {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background: #e8f7e8;
+            color: green;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        /* =========================
+           FOOTER
+           ========================= */
+
+        footer {
+            text-align: center;
+            margin-top: 35px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* =========================
+           RESPONSIVE DESIGN
+           ========================= */
+
+        @media (max-width: 900px) {
+
+            .info-section {
+                grid-template-columns: 1fr;
+            }
+
+            .pipeline {
+                flex-direction: column;
+            }
+
+            .arrow {
+                transform: rotate(90deg);
+                margin: 15px;
+            }
+
+            .stage {
+                width: 220px;
+            }
+        }
     </style>
+
 </head>
 
 <body>
 
     <div class="container">
 
-        <h1>Machine Learning CI/CD</h1>
+        <!-- HEADER -->
 
-        <div class="info">
+        <div class="header">
 
-            <p>
-                <strong>ML Model:</strong>
-                Random Forest Classifier
-            </p>
+            <h1>Machine Learning CI/CD Pipeline</h1>
 
             <p>
-                <strong>Dataset:</strong>
-                Iris Dataset
-            </p>
-
-            <p>
-                <strong>Model Accuracy:</strong>
-                90%+
-            </p>
-
-            <p>
-                <strong>CI/CD Status:</strong>
-                <span class="success">Deployment Successful</span>
+                Automated Machine Learning Model Training,
+                Testing and Deployment
             </p>
 
         </div>
+
+
+        <!-- MODEL INFORMATION -->
+
+        <div class="info-section">
+
+            <div class="info-card">
+
+                <h3>ML Model</h3>
+
+                <p>Random Forest</p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>Dataset</h3>
+
+                <p>Iris Dataset</p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>Accuracy</h3>
+
+                <p>90%+</p>
+
+            </div>
+
+        </div>
+
+
+        <!-- PIPELINE -->
+
+        <div class="pipeline-section">
+
+            <h2>CI/CD Pipeline Flow</h2>
+
+
+            <!-- CI -->
+
+            <div class="ci-label">
+                CONTINUOUS INTEGRATION (CI)
+            </div>
+
+
+            <div class="pipeline">
+
+                <!-- Stage 1 -->
+
+                <div class="stage">
+
+                    <div class="number">1</div>
+
+                    <h3>Checkout</h3>
+
+                    <p>
+                        Checkout source code
+                        from GitHub
+                    </p>
+
+                    <div class="success">
+                        ✓ Passed
+                    </div>
+
+                </div>
+
+
+                <div class="arrow">
+                    →
+                </div>
+
+
+                <!-- Stage 2 -->
+
+                <div class="stage">
+
+                    <div class="number">2</div>
+
+                    <h3>Setup Python</h3>
+
+                    <p>
+                        Configure Python
+                        environment
+                    </p>
+
+                    <div class="success">
+                        ✓ Passed
+                    </div>
+
+                </div>
+
+
+                <div class="arrow">
+                    →
+                </div>
+
+
+                <!-- Stage 3 -->
+
+                <div class="stage">
+
+                    <div class="number">3</div>
+
+                    <h3>Install</h3>
+
+                    <p>
+                        Install required
+                        dependencies
+                    </p>
+
+                    <div class="success">
+                        ✓ Passed
+                    </div>
+
+                </div>
+
+
+                <div class="arrow">
+                    →
+                </div>
+
+
+                <!-- Stage 4 -->
+
+                <div class="stage">
+
+                    <div class="number">4</div>
+
+                    <h3>Train Model</h3>
+
+                    <p>
+                        Train and run
+                        ML model
+                    </p>
+
+                    <div class="success">
+                        ✓ Passed
+                    </div>
+
+                </div>
+
+
+                <div class="arrow">
+                    →
+                </div>
+
+
+                <!-- Stage 5 -->
+
+                <div class="stage">
+
+                    <div class="number">5</div>
+
+                    <h3>Run Tests</h3>
+
+                    <p>
+                        Execute automated
+                        pytest tests
+                    </p>
+
+                    <div class="success">
+                        ✓ Passed
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- CD -->
+
+            <div class="cd-label">
+                CI PASSED ✓ &nbsp; → &nbsp;
+                CONTINUOUS DEPLOYMENT (CD)
+            </div>
+
+
+            <div class="pipeline">
+
+                <!-- Stage 6 -->
+
+                <div class="stage">
+
+                    <div class="number">6</div>
+
+                    <h3>Build</h3>
+
+                    <p>
+                        Prepare website
+                        for deployment
+                    </p>
+
+                    <div class="success">
+                        ✓ Passed
+                    </div>
+
+                </div>
+
+
+                <div class="arrow">
+                    →
+                </div>
+
+
+                <!-- Stage 7 -->
+
+                <div class="stage">
+
+                    <div class="number">7</div>
+
+                    <h3>Deploy</h3>
+
+                    <p>
+                        Deploy website
+                        using GitHub Pages
+                    </p>
+
+                    <div class="success">
+                        ✓ Passed
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FINAL STATUS -->
+
+            <div class="status">
+
+                ✓ CI/CD Pipeline Successfully Completed
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <footer>
+
+            ML CI/CD Assignment | GitHub Actions | GitHub Pages
+
+        </footer>
 
     </div>
 
 </body>
 
 </html>
+```
